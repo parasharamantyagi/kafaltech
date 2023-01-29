@@ -12,7 +12,7 @@ class UserAuthController extends Controller
     {
         $data = $request->validate([
             'name' => 'required|max:255',
-            'email' => 'required|email|unique:users',
+            'username' => 'required|unique:users',
             'password' => 'required|confirmed'
         ]);
 
@@ -28,7 +28,7 @@ class UserAuthController extends Controller
     public function login(Request $request)
     {
         $data = $request->validate([
-            'email' => 'email|required',
+            'username' => 'required',
             'password' => 'required'
         ]);
 
