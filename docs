@@ -82,6 +82,11 @@ ssh -oHostKeyAlgorithms=+ssh-dss um3q7rvuyx1v@68.178.145.111
 
 ~/public_html/ujsadmin/kafaltech
 
+../../assets/libs/jquery/dist/jquery.min.js
+
+
+{{url('assets/images/users/1.jpg')}}
+
 
 
 
