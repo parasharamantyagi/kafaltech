@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+class AdminController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -26,16 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('admin.home');
     }
 
-    public function loginAdmin(Request $resuest)
-    {
-        $inputData = array('username'=> $resuest->username, 'password' => Hash::make($resuest->password));
-        if (Auth::attempt($inputData)) {
-            return redirect()->intended('/')
-                        ->withSuccess('Signed in');
-        }
-        return redirect("admin")->withSuccess('Login details are not valid');
-    }
 }

@@ -13,9 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
+
+
+Route::get('/', [HomeController::class, 'index']);
+
+Route::post('/login-admin', [HomeController::class, 'loginAdmin'])->name('login-admin');
 
 
 Auth::routes();
+
+Route::get('/admin', [AdminController::class, 'index']);
