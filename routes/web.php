@@ -25,3 +25,4 @@ Route::post('/login-admin', [HomeController::class, 'loginAdmin'])->name('login-
 Auth::routes();
 
 Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/admin/customer', [AdminController::class, 'getCustomer']);

@@ -170,14 +170,14 @@
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
-                        <!-- <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-profile.html"
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('admin/customer')}}"
                                 aria-expanded="false">
                                 <i class="mdi mdi-account-network"></i>
-                                <span class="hide-menu">Profile</span>
+                                <span class="hide-menu">Customer</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
+                        <!-- <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="form-basic.html"
                                 aria-expanded="false">
                                 <i class="mdi mdi-arrange-bring-forward"></i>

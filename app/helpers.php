@@ -4,7 +4,8 @@
 
   
     function app_url($input){
-        $local_url = 'public/'.$input;
+        // $local_url = 'public/'.$input;
+        $local_url = $input;
         return URL::to($local_url);
     }
 

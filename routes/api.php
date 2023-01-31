@@ -24,3 +24,5 @@ Route::post('/login', 'App\Http\Controllers\Auth\UserAuthController@login');
 
 
 Route::get('/user', 'App\Http\Controllers\Auth\UserAuthController@getUser')->middleware('auth:api');
+Route::get('/consumer-data', 'App\Http\Controllers\Auth\UserAuthController@getConsumerData');
+Route::post('/consumer-data', 'App\Http\Controllers\Auth\UserAuthController@addConsumerData');
