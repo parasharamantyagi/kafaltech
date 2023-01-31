@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -15,11 +14,11 @@
     <title>Nice Admin Lite Template by WrapPixel</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/niceadmin-lite/" />
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{url('public/files/assets/images/favicon.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{app_url('files/assets/images/favicon.png')}}">
     <!-- Custom CSS -->
-    <link href="{{url('public/files/assets/libs/chartist/dist/chartist.min.css')}}" rel="stylesheet">
+    <link href="{{app_url('files/assets/libs/chartist/dist/chartist.min.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="{{url('public/files/dist/css/style.min.css')}}" rel="stylesheet">
+    <link href="{{app_url('files/dist/css/style.min.css')}}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -62,17 +61,21 @@
                             <b class="logo-icon">
                                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                                 <!-- Dark Logo icon -->
-                                <img src="{{url('public/files/assets/images/logo-icon.png')}}" alt="homepage" class="dark-logo" />
+                                <img src="{{app_url('files/assets/images/logo-icon.png')}}" alt="homepage"
+                                    class="dark-logo" />
                                 <!-- Light Logo icon -->
-                                <img src="{{url('public/files/assets/images/logo-light-icon.png')}}" alt="homepage" class="light-logo" />
+                                <img src="{{app_url('files/assets/images/logo-light-icon.png')}}" alt="homepage"
+                                    class="light-logo" />
                             </b>
                             <!--End Logo icon -->
                             <!-- Logo text -->
                             <span class="logo-text">
                                 <!-- dark Logo text -->
-                                <img src="{{url('public/files/assets/images/logo-text.png')}}" alt="homepage" class="dark-logo" />
+                                <img src="{{app_url('files/assets/images/logo-text.png')}}" alt="homepage"
+                                    class="dark-logo" />
                                 <!-- Light Logo text -->
-                                <img src="{{url('public/files/assets/images/logo-light-text.png')}}" class="light-logo" alt="homepage" />
+                                <img src="{{app_url('files/assets/images/logo-light-text.png')}}" class="light-logo"
+                                    alt="homepage" />
                             </span>
                         </a>
                     </div>
@@ -82,7 +85,7 @@
                     <!-- ============================================================== -->
                     <!-- Toggle which is visible on mobile only -->
                     <!-- ============================================================== -->
-                    
+
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -120,16 +123,25 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{url('public/files/assets/images/users/1.jpg')}}" alt="user" class="rounded-circle" width="31">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#"
+                                id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="{{app_url('files/assets/images/users/1.jpg')}}" alt="user"
+                                    class="rounded-circle" width="31">
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user me-1 ms-1"></i>
-                                    My Profile</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet me-1 ms-1"></i>
+                            <ul class="dropdown-menu dropdown-menu-end user-dd animated"
+                                aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i
+                                        class="ti-user me-1 ms-1"></i>
+                                    Log-out</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+
+                                <!-- <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet me-1 ms-1"></i>
                                     My Balance</a>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email me-1 ms-1"></i>
-                                    Inbox</a>
+                                    Inbox</a> -->
                             </ul>
                         </li>
                         <!-- ============================================================== -->
@@ -215,7 +227,7 @@
 
         @yield('content')
 
-        
+
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
@@ -226,22 +238,23 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="{{url('public/files/assets/libs/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{app_url('files/assets/libs/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="{{url('public/files/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{app_url('files/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="{{url('public/files/assets/extra-libs/sparkline/sparkline.js')}}"></script>
+    <script src="{{app_url('files/assets/extra-libs/sparkline/sparkline.js')}}"></script>
     <!--Wave Effects -->
-    <script src="{{url('public/files/dist/js/waves.js')}}"></script>
+    <script src="{{app_url('files/dist/js/waves.js')}}"></script>
     <!--Menu sidebar -->
-    <script src="{{url('public/files/dist/js/sidebarmenu.js')}}"></script>
+    <script src="{{app_url('files/dist/js/sidebarmenu.js')}}"></script>
     <!--Custom JavaScript -->
-    <script src="{{url('public/files/dist/js/custom.min.js')}}"></script>
+    <script src="{{app_url('files/dist/js/custom.min.js')}}"></script>
     <!--This page JavaScript -->
     <!--chartis chart-->
-    <script src="{{url('public/files/assets/libs/chartist/dist/chartist.min.js')}}"></script>
-    <script src="{{url('public/files/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js')}}"></script>
-    <script src="{{url('public/files/dist/js/pages/dashboards/dashboard1.js')}}"></script>
+    <script src="{{app_url('files/assets/libs/chartist/dist/chartist.min.js')}}"></script>
+    <script src="{{app_url('files/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js')}}">
+    </script>
+    <script src="{{app_url('files/dist/js/pages/dashboards/dashboard1.js')}}"></script>
 </body>
 
 </html>

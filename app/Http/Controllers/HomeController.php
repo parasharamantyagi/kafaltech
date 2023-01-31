@@ -31,11 +31,10 @@ class HomeController extends Controller
 
     public function loginAdmin(Request $resuest)
     {
-        $inputData = array('username'=> $resuest->username, 'password' => Hash::make($resuest->password));
+        $inputData = array('username'=> $resuest->username,'password'=>$resuest->password);
         if (Auth::attempt($inputData)) {
-            return redirect()->intended('/')
-                        ->withSuccess('Signed in');
+            return redirect("admin")->withSuccess('You have signed-in');
         }
-        return redirect("admin")->withSuccess('Login details are not valid');
+        return redirect("/login")->with('message', 'Invalid username or password');;
     }
 }

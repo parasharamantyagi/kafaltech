@@ -17,7 +17,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('my-home');
 
 Route::post('/login-admin', [HomeController::class, 'loginAdmin'])->name('login-admin');
 
