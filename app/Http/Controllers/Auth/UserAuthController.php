@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\ConsumerData;
 use Illuminate\Http\Request;
+use Validator;
+
 
 class UserAuthController extends Controller
 {
@@ -24,16 +26,30 @@ class UserAuthController extends Controller
 
     public function login(Request $request)
     {
-        $data = $request->validate([
-            'username' => 'required',
-            'password' => 'required'
-        ]);
-        if (!auth()->attempt($data)) {
-            return response(['error_message' => 'Incorrect Details. 
-            Please try again']);
+        try {
+            $validator = Validator::make($request->all(), [
+                'username' => 'required',
+                'password' => 'required',
+            ]);
+            if($validator->passes()){
+                $data = $request->validate([
+                    'username' => 'required',
+                    'password' => 'required'
+                ]);
+    
+                if (!auth()->attempt($data)) {
+                    return response(['error_message' => 'Incorrect Details. 
+                    Please try again']);
+                }
+                $token = auth()->user()->createToken('API Token')->accessToken;
+                return response(['user' => auth()->user(), 'token' => $token]);
+            }else{
+                return response($validator->errors());
+
+            }
+        } catch (Exception $e) {
+            return response($e->getMessage());
         }
-        $token = auth()->user()->createToken('API Token')->accessToken;
-        return response(['user' => auth()->user(), 'token' => $token]);
     }
 
     public function getUser(Request $request)
@@ -53,6 +69,16 @@ class UserAuthController extends Controller
             $input = $request->all();
             $all_user = ConsumerData::insert($input);
             return response(array('message'=>'Consumer add successfully'));
+        } catch (\Exception $e) {
+            return response($e->getMessage());
+        }
+    }
+
+    public function getConsumerDataById(Request $request,$id)
+    {
+        try {
+            $data = ConsumerData::where('id', $id)->orWhere('consumer_code', $id)->orWhere('demand_no', $id)->first();
+            return response($data);
         } catch (\Exception $e) {
             return response($e->getMessage());
         }
